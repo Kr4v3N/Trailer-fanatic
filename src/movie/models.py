@@ -29,9 +29,10 @@ class Movie(models.Model):
     image = models.ImageField(upload_to='movies/')
     category = models.CharField(choices=CATEGORY_CHOICE, max_length=2)
     Language = models.CharField(choices=LANGUAGE_CHOICE, max_length=2)
-    status = models.CharField( choices=STATUS_CHOICE, max_length=2)
+    status = models.CharField(choices=STATUS_CHOICE, max_length=2)
     year_of_production = models.DateField()
-    view_count = models.IntegerField(default=0)
+    cast = models.CharField(max_length=100)
+    views_count = models.IntegerField(default=0)
 
     class Meta:
         verbose_name = 'film'
@@ -39,3 +40,22 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+
+LINK_CHOICE = (
+    ('d', 'DOWNLOAD'),
+    ('W', 'WATCH LINK'),
+)
+
+
+class Movielinks(models.Model):
+    movie = models.ForeignKey('Movie', related_name='movie_watch_link', on_delete=models.CASCADE)
+    type = models.CharField(choices=LINK_CHOICE, max_length=1)
+    link = models.URLField()
+
+    class Meta:
+        verbose_name = 'lien film'
+        verbose_name_plural = 'liens films'
+
+    def __str__(self):
+        return str(self.movie)
