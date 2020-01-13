@@ -29,7 +29,7 @@
 					<li><a href="index.html">Accueil</a></li>
 					<li><a>Genres</a>
 						<ul>
-							<li><a href="genre.html">Action</a></li>
+							<li><a href="{% url 'movies:movie_category' 'action' %}">Action</a></li>
 							<li><a href="genre.html">Comedie</a></li>
 							<li><a href="genre.html">Dramatique</a></li>
 							<li><a href="genre.html">Fantastique</a></li>
@@ -50,7 +50,6 @@
 							<li><a href="language.html">Anglais</a></li>
 						</ul>
 					</li>
-					<li><a href="mostwatched.html">Les plus vus</a></li>
 					<li class="mobsearch">
 						<form class="mobform">
 							<input type="text" name="s" class="mobsearchfield" placeholder="Search...">

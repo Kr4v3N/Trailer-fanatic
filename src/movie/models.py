@@ -4,11 +4,11 @@ from django.db import models
 
 
 CATEGORY_CHOICE = (
-    ('AC', 'ACTION'),
-    ('CO', 'COMEDIE'),
-    ('DR', 'DRAME'),
-    ('FA', 'FANTASTIQUE'),
-    ('DO', 'DOCUMENTAIRE'),
+    ('action', 'ACTION'),
+    ('comedie', 'COMEDIE'),
+    ('drame', 'DRAME'),
+    ('fantastique', 'FANTASTIQUE'),
+    ('documentaire', 'DOCUMENTAIRE'),
 )
 
 LANGUAGE_CHOICE = (
@@ -27,7 +27,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1500)
     image = models.ImageField(upload_to='movies/')
-    category = models.CharField(choices=CATEGORY_CHOICE, max_length=2)
+    category = models.CharField(choices=CATEGORY_CHOICE, max_length=15)
     Language = models.CharField(choices=LANGUAGE_CHOICE, max_length=2)
     status = models.CharField(choices=STATUS_CHOICE, max_length=2)
     year_of_production = models.DateField()
