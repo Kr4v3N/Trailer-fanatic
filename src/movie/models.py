@@ -43,7 +43,7 @@ class Movie(models.Model):
 
 
 LINK_CHOICE = (
-    ('d', 'DOWNLOAD'),
+    ('D', 'DOWNLOAD LINK'),
     ('W', 'WATCH LINK'),
 )
 
