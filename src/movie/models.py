@@ -12,26 +12,30 @@ CATEGORY_CHOICE = (
 )
 
 LANGUAGE_CHOICE = (
-    ('FR', 'FRANCAIS'),
+    ('FR', 'FRANÇAIS'),
     ('EN', 'ANGLAIS'),
 )
 
 STATUS_CHOICE = (
     ('RA', 'RECEMMENT AJOUTÉ'),
-    ('PV', 'PLUS VUE'),
-    ('MN', 'MEILLEUR NOTÉ'),
+    ('PV', 'LES PLUS VUE'),
+    ('MN', 'LES MEILLEURS NOTÉS'),
 )
 
 
 class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1500)
-    image = models.ImageField(upload_to='movies')
+    image = models.ImageField(upload_to='movies/')
     category = models.CharField(choices=CATEGORY_CHOICE, max_length=2)
     Language = models.CharField(choices=LANGUAGE_CHOICE, max_length=2)
     status = models.CharField( choices=STATUS_CHOICE, max_length=2)
     year_of_production = models.DateField()
     view_count = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'film'
+        verbose_name_plural = 'films'
 
     def __str__(self):
         return self.title
