@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 # Create your models here.
 
@@ -24,7 +25,7 @@ STATUS_CHOICE = (
 
 
 class Movie(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
     description = models.TextField(max_length=1500)
     image = models.ImageField(upload_to='movies/')
     category = models.CharField(choices=CATEGORY_CHOICE, max_length=15)
@@ -35,6 +36,13 @@ class Movie(models.Model):
     realized_by = models.CharField(max_length=200)
     cast = models.CharField(max_length=100)
     views_count = models.IntegerField(default=0)
+
+    slug = models.SlugField(max_length=200, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Movie, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'film'
