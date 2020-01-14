@@ -14,19 +14,15 @@
 	<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
 	<script src="{% static 'js/script.js' %}"></script>
 
-	<!-- Demo styles -->
-	<style>
-
-	</style>
 </head>
 <body>
 	<div class="wrapper">
 
 		<header class="header">
-			<figure class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo"></figure></a>
+			<figure class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo"></a></figure>
 			<nav class="menu">
 				<ul>
-					<li><a href="index.html">Accueil</a></li>
+					<li><a href="/">Accueil</a></li>
 					<li><a>Genres</a>
 						<ul>
 							<li><a href="{% url 'movies:movie_category' 'action' %}">Action</a></li>
@@ -73,7 +69,9 @@
 
 					{% for movie in slider_movies %}
 					<div class="swiper-slide">
+						{% if movie.banner %}
 						<img src="{{ movie.banner.url }}">
+						{% endif %}
 						<div class="caption">
 							<div class="captioninside">
 								<h3>{{ movie.title }}</h3>
