@@ -36,6 +36,7 @@ class Movie(models.Model):
     realized_by = models.CharField(max_length=200)
     cast = models.CharField(max_length=100)
     views_count = models.IntegerField(default=0)
+    movie_trailer = models.URLField()
 
     slug = models.SlugField(max_length=200, blank=True, null=True)
 
