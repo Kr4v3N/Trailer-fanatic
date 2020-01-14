@@ -12,8 +12,8 @@ CATEGORY_CHOICE = (
 )
 
 LANGUAGE_CHOICE = (
-    ('FR', 'FRANÇAIS'),
-    ('EN', 'ANGLAIS'),
+    ('Français', 'FRANÇAIS'),
+    ('Englais', 'ANGLAIS'),
 )
 
 STATUS_CHOICE = (
@@ -28,9 +28,11 @@ class Movie(models.Model):
     description = models.TextField(max_length=1500)
     image = models.ImageField(upload_to='movies/')
     category = models.CharField(choices=CATEGORY_CHOICE, max_length=15)
-    Language = models.CharField(choices=LANGUAGE_CHOICE, max_length=2)
+    Language = models.CharField(choices=LANGUAGE_CHOICE, max_length=15)
     status = models.CharField(choices=STATUS_CHOICE, max_length=2)
     year_of_production = models.DateField()
+    duration = models.IntegerField()
+    realized_by = models.CharField(max_length=200)
     cast = models.CharField(max_length=100)
     views_count = models.IntegerField(default=0)
 
@@ -51,7 +53,7 @@ LINK_CHOICE = (
 class Movielinks(models.Model):
     movie = models.ForeignKey('Movie', related_name='movie_watch_link', on_delete=models.CASCADE)
     type = models.CharField(choices=LINK_CHOICE, max_length=1)
-    link = models.URLField()
+    link = models.URLField(max_length=350)
 
     class Meta:
         verbose_name = 'lien film'

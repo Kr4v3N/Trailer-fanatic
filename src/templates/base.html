@@ -30,24 +30,24 @@
 					<li><a>Genres</a>
 						<ul>
 							<li><a href="{% url 'movies:movie_category' 'action' %}">Action</a></li>
-							<li><a href="genre.html">Comedie</a></li>
-							<li><a href="genre.html">Dramatique</a></li>
-							<li><a href="genre.html">Fantastique</a></li>
-							<li><a href="genre.html">Documentaire</a></li>
+							<li><a href="{% url 'movies:movie_category' 'comedie' %}">Comedie</a></li>
+							<li><a href="{% url 'movies:movie_category' 'drame' %}">Dramatique</a></li>
+							<li><a href="{% url 'movies:movie_category' 'fantastique' %}">Fantastique</a></li>
+							<li><a href="{% url 'movies:movie_category' 'documentaire' %}">Documentaires</a></li>
 						</ul>
 					</li>
 					<li><a>Année</a>
 						<ul>
-							<li><a href="year.html">2020</a></li>
-							<li><a href="year.html">2019</a></li>
-							<li><a href="year.html">2018</a></li>
-							<li><a href="year.html">2017</a></li>
+							<li><a href="">2020</a></li>
+							<li><a href="">2019</a></li>
+							<li><a href="">2018</a></li>
+							<li><a href="l">2017</a></li>
 						</ul>
 					</li>
 					<li><a>Langue</a>
 						<ul>
-							<li><a href="language.html">Français</a></li>
-							<li><a href="language.html">Anglais</a></li>
+							<li><a href="{% url 'movies:movie_language' 'Français' %}">Français</a></li>
+							<li><a href="{% url 'movies:movie_language' 'Englais' %}">Anglais</a></li>
 						</ul>
 					</li>
 					<li class="mobsearch">
@@ -81,7 +81,7 @@
 						</div>
 					</div>
 					<div class="swiper-slide">
-						<img src="images/slider/poster1.jpg">
+						<img src="{% static 'images/slider/poster1.jpg' %}">
 						<div class="caption">
 							<div class="captioninside">
 								<h3>Movie Title 2</h3>
@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
+						<img src="{% static 'images/slider/poster2.jpg' %}">
 						<div class="caption">
 							<div class="captioninside">
 								<h3>Movie Title 3</h3>
@@ -134,127 +134,7 @@
 
 		<!-- Swiper JS -->
 		<script src="{% static 'js/swiper.min.js' %}"></script>
-		<!-- Initialize Swiper -->
-		<script>
-			$(document).ready(function(){
-
-				var swiper = new Swiper('.homeslider > .swiper-container', {
-					pagination: '.swiper-pagination',
-					paginationClickable: true,
-					preventClicks:false,
-					preventClicksPropagation:false,
-					effect:'fade',
-					breakpoints: {
-						320: {
-							height:200
-						},
-
-						480: {
-							height:300
-						},
-
-						768: {
-							height:400
-						},
-						1024: {
-							height:500
-						}
-					}
-				});
-
-				var recentswiper = new Swiper('.recentslider > .swiper-container', {
-					nextButton: '.recent-next',
-					prevButton: '.recent-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks:false,
-					preventClicksPropagation:false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-				var mostswiper = new Swiper('.mostslider > .swiper-container', {
-					nextButton: '.most-next',
-					prevButton: '.most-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks:false,
-					preventClicksPropagation:false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-				var topswiper = new Swiper('.topslider > .swiper-container',  {
-					nextButton: '.top-next',
-					prevButton: '.top-prev',
-					slidesPerView: 8,
-					paginationClickable: true,
-					preventClicks:false,
-					preventClicksPropagation:false,
-					spaceBetween: 10,
-					breakpoints: {
-						320: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						480: {
-							slidesPerView: 3,
-							spaceBetween: 5
-						},
-
-						768: {
-							slidesPerView: 5,
-							spaceBetween: 5
-						},
-						1024: {
-							slidesPerView: 6,
-							spaceBetween: 10
-						}
-					}
-				});
-
-			});
-		</script>
-
+		<script src="{% static 'js/touch_swiper.js' %}"></script>
 	</div>
 </body>
 </html>

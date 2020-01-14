@@ -8,7 +8,7 @@ from .models import Movie, Movielinks
 
 class MovieList(ListView):
     model = Movie
-    paginate_by = 1
+    paginate_by = 5
 
 
 class MovieDetail(DetailView):
@@ -37,4 +37,18 @@ class MovieCategory(ListView):
     def get_context_data(self, **kwargs):
         context = super(MovieCategory, self).get_context_data(**kwargs)
         context['movie_category'] = self.category
+        return context
+
+
+class MovieLanguage(ListView):
+    model = Movie
+    paginate_by = 5
+
+    def get_queryset(self):
+        self.language = self.kwargs['lang']
+        return Movie.objects.filter(Language=self.language)
+
+    def get_context_data(self, **kwargs):
+        context = super(MovieLanguage, self).get_context_data(**kwargs)
+        context['movie_language'] = self.language
         return context
