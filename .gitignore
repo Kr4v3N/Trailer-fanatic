@@ -57,7 +57,7 @@ coverage.xml
 
 # Django stuff:
 *.log
-trailerfanatic/local_settings.py
+src/trailerfanatic/local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
