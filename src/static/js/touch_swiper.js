@@ -51,10 +51,6 @@ $(document).ready(function(){
             1024: {
                 slidesPerView: 6,
                 spaceBetween: 10
-            },
-            1775: {
-                slidesPerView: 8,
-                spaceBetween: 5
             }
         }
     });
