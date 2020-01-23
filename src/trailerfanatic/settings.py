@@ -91,6 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Maintenane Mode
 # if True the maintenance-mode will be activated
 MAINTENANCE_MODE = None
 # by default, to get/set the state value a local file backend is used
